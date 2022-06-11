@@ -18,6 +18,10 @@ export class HerbsService {
     return this.herbModel.find().exec();
   }
 
+  async findByFilter(name: string): Promise<Herb[]> {
+    return this.herbModel.find({ name: { $regex: '.*' + name + '.*' } }).exec();
+  }
+
   findOne(id: number) {
     return `This action returns a #${id} herb`;
   }

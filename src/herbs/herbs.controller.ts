@@ -6,11 +6,13 @@ import {
   Patch,
   Param,
   Delete,
+  Query,
 } from '@nestjs/common';
 import { HerbsService } from './herbs.service';
 import { CreateHerbDto } from './dto/create-herb.dto';
 import { UpdateHerbDto } from './dto/update-herb.dto';
-import { ApiTags } from '@nestjs/swagger';
+import { ApiTags, ApiQuery } from '@nestjs/swagger';
+import { Herb } from './schemas/herb.schema';
 
 @ApiTags('herbs')
 @Controller('herbs')
@@ -23,8 +25,16 @@ export class HerbsController {
   }
 
   @Get()
-  findAll() {
-    return this.herbsService.findAll();
+  @ApiQuery({
+    required: false,
+    name: 'name',
+    type: 'string',
+  })
+  findByFilter(@Query('name') name: string) {
+    let res: Promise<Herb[]>;
+    if (name === undefined) res = this.herbsService.findAll();
+    else res = this.herbsService.findByFilter(name);
+    return res;
   }
 
   @Get(':id')
