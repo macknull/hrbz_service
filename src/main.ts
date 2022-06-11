@@ -1,6 +1,10 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
-import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
+import {
+  SwaggerModule,
+  DocumentBuilder,
+  SwaggerCustomOptions,
+} from '@nestjs/swagger';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -12,7 +16,10 @@ async function bootstrap() {
     .addTag('herbs')
     .build();
   const document = SwaggerModule.createDocument(app, config);
-  SwaggerModule.setup('api', app, document);
+  const customOptions: SwaggerCustomOptions = {
+    customSiteTitle: 'herb.me API Docs',
+  };
+  SwaggerModule.setup('api', app, document, customOptions);
 
   await app.listen(3000);
 }

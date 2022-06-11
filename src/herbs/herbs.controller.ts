@@ -10,7 +10,9 @@ import {
 import { HerbsService } from './herbs.service';
 import { CreateHerbDto } from './dto/create-herb.dto';
 import { UpdateHerbDto } from './dto/update-herb.dto';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags('herbs')
 @Controller('herbs')
 export class HerbsController {
   constructor(private readonly herbsService: HerbsService) {}
