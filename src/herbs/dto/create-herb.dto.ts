@@ -9,4 +9,7 @@ export class CreateHerbDto {
 
   @ApiProperty()
   description: string;
+
+  @ApiProperty()
+  img: string;
 }

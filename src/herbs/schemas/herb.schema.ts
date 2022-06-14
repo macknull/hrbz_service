@@ -13,6 +13,9 @@ export class Herb {
 
   @Prop()
   description: string;
+
+  @Prop()
+  img: string;
 }
 
 export const HerbSchema = SchemaFactory.createForClass(Herb);

@@ -22,12 +22,14 @@ export class HerbsService {
     return this.herbModel.find({ name: { $regex: '.*' + name + '.*' } }).exec();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} herb`;
+  findOne(id: string) {
+    return this.herbModel.findById(id).exec();
   }
 
-  update(id: number, updateHerbDto: UpdateHerbDto) {
-    return `This action updates a #${id} herb`;
+  update(id: string, updateHerbDto: UpdateHerbDto) {
+    return this.herbModel
+      .findByIdAndUpdate(id, updateHerbDto, { returnDocument: 'after' })
+      .exec();
   }
 
   async delete(id: string) {

@@ -39,12 +39,12 @@ export class HerbsController {
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.herbsService.findOne(+id);
+    return this.herbsService.findOne(id);
   }
 
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateHerbDto: UpdateHerbDto) {
-    return this.herbsService.update(+id, updateHerbDto);
+    return this.herbsService.update(id, updateHerbDto);
   }
 
   @Delete(':id')

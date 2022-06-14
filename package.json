@@ -1,8 +1,8 @@
 {
   "name": "hrbz_service",
   "version": "0.0.1",
-  "description": "",
-  "author": "",
+  "description": "herbme app // herbs REST API service",
+  "author": "Maciej Molski-Mazurek",
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
