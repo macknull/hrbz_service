@@ -9,7 +9,7 @@ import { ConfigModule } from '@nestjs/config';
   imports: [
     ConfigModule.forRoot(),
     MongooseModule.forRoot(
-      `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@telefonix.v20yl.mongodb.net/herbme?retryWrites=true&w=majority`,
+      `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@telefonix.4qk6qkf.mongodb.net/?retryWrites=true&w=majority&appName=Telefonix`,
     ),
     HerbsModule,
   ],
